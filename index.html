@@ -409,6 +409,21 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 .vision-hold strong { font-family: var(--sf-font-display); font-weight: 600; font-size: 26px; line-height: 1.2; max-width: 16em; }
 .vision-hold span { color: #DCEAF8; font-size: 16px; }
 
+
+.wrapup .wrap-grid { position: relative; z-index: 2; flex: 1; min-height: 0; display: grid; grid-template-columns: 45fr 55fr; gap: 40px; align-items: center; }
+.wrapup h2 { font-size: 42px; line-height: 1.08; color: #fff; max-width: 11em; }
+.wrapup h2 .hl { color: #57A3FD; }
+.wrap-eye { margin: 0 0 12px; font-family: var(--sf-font-display); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: #57A3FD; }
+.wrap-lead { margin-top: 12px; font-size: 16px; line-height: 1.4; color: #DCEAF8; }
+.wrap-pill { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,.06); border-left: 3px solid #57A3FD; }
+.wrap-pill strong { display: block; font-size: 16px; line-height: 1.25; color: #fff; }
+.wrap-pill span { display: block; margin-top: 3px; font-size: 14px; line-height: 1.35; color: #DCEAF8; }
+.slide.wrapup .foot { right: 128px; }
+.mile { margin-top: 12px; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); padding: 16px 18px; }
+.mile .when { margin: 0; font-family: var(--sf-font-display); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: #57A3FD; }
+.mile h3 { margin: 6px 0; font-size: 20px; line-height: 1.2; color: #fff; }
+.mile p { margin: 0; font-size: 15px; line-height: 1.35; color: #DCEAF8; }
+
 </style>
 </head>
 <body>
@@ -558,14 +573,38 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
   </div>
 </section>
 
-<section class="slide evening" id="thanks">
+<section class="slide evening wrapup" id="thanks">
   <div class="mesh"></div>
-  <div class="grow">
-    <p class="kicker">Wrap up</p>
-    <h1>Teams is the front door. <span class="hl">ServiceNow keeps the record.</span></h1>
-    <p class="lede">Hyatt colleagues can get knowledge, a correctly filed incident, and a status update without leaving the conversation they are already in.</p>
+  <div class="wrap-grid">
+    <div class="wrap-close">
+      <p class="wrap-eye">Thank you · Executive wrap-up</p>
+      <h2>Thank you. <span class="hl">Ready for the AI Council.</span></h2>
+      <p class="wrap-lead">Thank you to Hyatt’s IT, Service Desk, and Chicago/EMEA pilot teams for partnering with Salesforce to prove how Agentforce elevates employee and property support—without disrupting ServiceNow.</p>
+      <div class="wrap-pill"><strong>Zero Rip-and-Replace</strong><span>Sits natively in Microsoft Teams in front of ServiceNow, Workday, Entra, and OPERA Cloud.</span></div>
+      <div class="wrap-pill"><strong>Proven Capacity Gain</strong><span>Targets 72% non-break/fix volume—unlocking 9–15 FTEs ($0.8M–$1.3M/yr) in desk capacity.</span></div>
+      <div class="wrap-pill"><strong>Predictable Economics</strong><span>Transparent $1–$2/user/month flat-rate or resolution-based pricing tied to deflection.</span></div>
+    </div>
+    <div class="wrap-path">
+      <p class="wrap-eye">Path to year-end AI Council decision</p>
+      <article class="mile">
+        <p class="when">Now – Nov 19 · Pilot validation</p>
+        <h3>Complete 14-User Testing &amp; Office Hours</h3>
+        <p>Gather containment, routing accuracy, and tester feedback across Chicago and EMEA cohorts ahead of pilot close.</p>
+      </article>
+      <article class="mile">
+        <p class="when">Nov 20 · Pilot readout</p>
+        <h3>Finalize AI Council ROI Business Case</h3>
+        <p>Partner with Hyatt IT leadership to synthesize pilot metrics, Wave 1 access automation scope, and service desk capacity savings.</p>
+      </article>
+      <article class="mile">
+        <p class="when">Year-end · Executive alignment</p>
+        <h3>AI Council Review &amp; Product Roadmap Briefing</h3>
+        <p>Deliver final readout for AI Council evaluation alongside an executive roadmap session with Salesforce ITSM Product Leadership.</p>
+      </article>
+    </div>
   </div>
 </section>
+
 
 </div>
 <div id="bar"></div>
