@@ -175,7 +175,7 @@ p { margin: 0; }
 .beats li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--sf-cloud-blue-80); position: absolute; left: 0; top: .45em; }
 .foot {
   position: absolute; left: 20px; right: 20px; bottom: calc(14px + env(safe-area-inset-bottom));
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; justify-content: flex-end;
   font-size: 13px; z-index: 3; pointer-events: none;
 }
 .foot .brand { font-family: var(--sf-font-display); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
@@ -613,18 +613,32 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 <script>
 const SLIDES=[...document.querySelectorAll('#stage .slide')];
 let cur=0;
-const titles=['Title','Summary','Stats','Pilot','Vision','Wrap up'];
 function fillFeet(){
   SLIDES.forEach((s,i)=>{
-    if(s.id==='cover') return;
     let f=s.querySelector(':scope > .foot');
     if(!f){f=document.createElement('div');f.className='foot';s.appendChild(f)}
-    f.innerHTML=`<span class="brand">Hyatt</span><span class="t">${titles[i]||''}</span><span class="n">${i+1} / ${SLIDES.length}</span>`;
+    f.innerHTML=`<span class="n">${i+1} / ${SLIDES.length}</span>`;
+  });
+}
+function pauseMedia(slide){
+  if(!slide) return;
+  slide.querySelectorAll('video').forEach(v=>{ try{ v.pause(); }catch(e){} });
+  slide.querySelectorAll('iframe').forEach(frame=>{
+    const src=frame.getAttribute('src')||'';
+    if(!/vidyard\.com/i.test(src) || !frame.contentWindow) return;
+    const id=(src.match(/vidyard\.com\/([A-Za-z0-9]+)/i)||[])[1];
+    if(!id) return;
+    const msg={ type:'play', uuid:id, payload:{ playing:false } };
+    try{
+      frame.contentWindow.postMessage(msg, '*');
+      frame.contentWindow.postMessage(JSON.stringify(msg), '*');
+    }catch(e){}
   });
 }
 function stagger(s){let i=0;s.querySelectorAll('.a').forEach(el=>{if(!el.style.getPropertyValue('--d'))el.style.setProperty('--d',(0.15+i*0.1)+'s');i++})}
 function render(n){
   n=Math.max(0,Math.min(SLIDES.length-1,n));
+  if(n!==cur) pauseMedia(SLIDES[cur]);
   cur=n;
   SLIDES.forEach((s,i)=>{s.classList.toggle('active',i===n);s.classList.toggle('past',i<n);if(i===n){s.scrollTop=0;stagger(s)}});
   document.getElementById('bar').style.width=((n+1)/SLIDES.length*100)+'%';
