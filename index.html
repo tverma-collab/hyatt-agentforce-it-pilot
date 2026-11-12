@@ -418,7 +418,7 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 .wrap-pill { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,.06); border-left: 3px solid #57A3FD; }
 .wrap-pill strong { display: block; font-size: 16px; line-height: 1.25; color: #fff; }
 .wrap-pill span { display: block; margin-top: 3px; font-size: 14px; line-height: 1.35; color: #DCEAF8; }
-.slide.wrapup .foot { right: 128px; }
+.slide.wrapup .foot { justify-content: space-between; right: 128px; }
 .mile { margin-top: 12px; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); padding: 16px 18px; }
 .mile .when { margin: 0; font-family: var(--sf-font-display); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: #57A3FD; }
 .mile h3 { margin: 6px 0; font-size: 20px; line-height: 1.2; color: #fff; }
@@ -577,33 +577,34 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
   <div class="mesh"></div>
   <div class="wrap-grid">
     <div class="wrap-close">
-      <p class="wrap-eye">Thank you · Executive wrap-up</p>
-      <h2>Thank you. <span class="hl">Ready for the AI Council.</span></h2>
-      <p class="wrap-lead">Thank you to Hyatt’s IT, Service Desk, and Chicago/EMEA pilot teams for partnering with Salesforce to prove how Agentforce elevates employee and property support—without disrupting ServiceNow.</p>
+      <p class="wrap-eye">Thank you · Executive recap</p>
+      <h2>Thank you. <span class="hl">A simpler front door for Hyatt.</span></h2>
+      <p class="wrap-lead">Thank you to Hyatt’s IT and Service Desk teams for partnering with Salesforce to validate how Agentforce elevates employee and property support—right inside Microsoft Teams.</p>
       <div class="wrap-pill"><strong>Zero Rip-and-Replace</strong><span>Sits natively in Microsoft Teams in front of ServiceNow, Workday, Entra, and OPERA Cloud.</span></div>
-      <div class="wrap-pill"><strong>Proven Capacity Gain</strong><span>Targets 72% non-break/fix volume—unlocking 9–15 FTEs ($0.8M–$1.3M/yr) in desk capacity.</span></div>
-      <div class="wrap-pill"><strong>Predictable Economics</strong><span>Transparent $1–$2/user/month flat-rate or resolution-based pricing tied to deflection.</span></div>
+      <div class="wrap-pill"><strong>Immediate Pilot Impact</strong><span>Proven knowledge deflection, accurate catalog routing, and structured incident creation.</span></div>
+      <div class="wrap-pill"><strong>Meaningful Scale</strong><span>Addresses 72% non-break/fix volume—unlocking 9–15 FTEs ($0.8M–$1.3M/yr) in service desk capacity.</span></div>
     </div>
     <div class="wrap-path">
-      <p class="wrap-eye">Path to year-end AI Council decision</p>
+      <p class="wrap-eye">Immediate next steps</p>
       <article class="mile">
-        <p class="when">Now – Nov 19 · Pilot validation</p>
-        <h3>Complete 14-User Testing &amp; Office Hours</h3>
-        <p>Gather containment, routing accuracy, and tester feedback across Chicago and EMEA cohorts ahead of pilot close.</p>
+        <p class="when">Through Nov 19 · Pilot testing</p>
+        <h3>Complete 14-User Validation &amp; Office Hours</h3>
+        <p>Finalize structured test scenarios across our Chicago and EMEA pilot testers to benchmark containment and routing accuracy.</p>
       </article>
       <article class="mile">
         <p class="when">Nov 20 · Pilot readout</p>
-        <h3>Finalize AI Council ROI Business Case</h3>
-        <p>Partner with Hyatt IT leadership to synthesize pilot metrics, Wave 1 access automation scope, and service desk capacity savings.</p>
+        <h3>Deliver Final Pilot Metrics &amp; Findings</h3>
+        <p>Review tester feedback, deflection rates, and lessons learned with Hyatt IT leadership.</p>
       </article>
       <article class="mile">
-        <p class="when">Year-end · Executive alignment</p>
-        <h3>AI Council Review &amp; Product Roadmap Briefing</h3>
-        <p>Deliver final readout for AI Council evaluation alongside an executive roadmap session with Salesforce ITSM Product Leadership.</p>
+        <p class="when">Phase 2 · Wave 1 scoping</p>
+        <h3>Prioritize High-Volume Access &amp; Lockout Flows</h3>
+        <p>Define the Wave 1 production roadmap across OPERA Cloud access, software requests, and TAP/password orchestration.</p>
       </article>
     </div>
   </div>
 </section>
+
 
 
 </div>
@@ -617,7 +618,8 @@ function fillFeet(){
   SLIDES.forEach((s,i)=>{
     let f=s.querySelector(':scope > .foot');
     if(!f){f=document.createElement('div');f.className='foot';s.appendChild(f)}
-    f.innerHTML=`<span class="n">${i+1} / ${SLIDES.length}</span>`;
+    const num=`<span class="n">${i+1} / ${SLIDES.length}</span>`;
+    f.innerHTML=s.id==='thanks'?`<span class="brand">Hyatt</span>${num}`:num;
   });
 }
 function silence(slide){
