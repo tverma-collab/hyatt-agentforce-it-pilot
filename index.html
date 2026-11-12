@@ -268,12 +268,15 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 .epill strong { display: block; font-family: var(--sf-font-display); font-weight: 600; font-size: 16px; line-height: 1.2; }
 .epill span { display: block; margin-top: 2px; font-size: 13px; line-height: 1.2; }
 .exec-stack { display: flex; flex-direction: column; gap: 14px; height: 100%; }
-.exec-card { background: #E8F1FA; color: #032D60; border-radius: 14px; padding: 22px 28px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.exec-card { background: #fff; color: #032D60; border-radius: 14px; padding: 22px 28px; flex: 1; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(1,118,211,.14); }
 .exec-card h3 { margin: 0 0 8px; font-size: 26px; line-height: 1.2; color: #0176D3; }
 .exec-card p { margin: 0; font-size: 20px; line-height: 1.4; color: #032D60; }
-.exec-card.dark { background: #032D60; }
-.exec-card.dark h3 { color: #57A3FD; }
-.exec-card.dark p { color: #fff; }
+.exec-card.teal { background: #0F766E; border-color: #0F766E; }
+.exec-card.teal h3 { color: #fff; }
+.exec-card.teal p { color: #E7F7F4; }
+.exec-card.dark { background: #0176D3; border-color: #0176D3; }
+.exec-card.dark h3 { color: #fff; }
+.exec-card.dark p { color: #F0F7FF; }
 
 
 .stats h2 { font-size: 46px; line-height: 1.08; color: #032D60; }
@@ -306,6 +309,10 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
   align-self: flex-start; color: #fff;
   background: rgba(255,255,255,.18); border-radius: 999px; padding: 7px 14px;
 }
+.hero.teal { background: #0F766E; border-color: #0F766E; box-shadow: none; color: #fff; }
+.hero.teal .cat, .hero.teal .big, .hero.teal h3, .hero.teal .tag { color: #fff; }
+.hero.teal .copy { color: #E7F7F4; }
+.hero.teal .tag { align-self: flex-start; background: rgba(255,255,255,.18); border-radius: 999px; padding: 7px 14px; }
 .stats-note { margin-top: 14px; font-size: 12px; line-height: 1.35; color: #5C6B7A; max-width: 1100px; }
 
 
@@ -470,7 +477,7 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
         <h3>1 · Validate the core path (Pilot Now)</h3>
         <p>14 Chicago and EMEA testers are actively validating knowledge deflection, smart catalog routing, and direct Teams incident creation ahead of our November 20 readout.</p>
       </article>
-      <article class="exec-card">
+      <article class="exec-card teal">
         <h3>2 · Guardrail production safely</h3>
         <p>Live directory write-backs (Entra, Omada, OPERA) remain intentionally gated during this two-and-a-half-week test window—proving AI accuracy with zero disruption to hotel operations.</p>
       </article>
@@ -501,7 +508,7 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
       <p class="copy">417K tickets a year for app access, OPERA, and user/group changes. Conversational intake and automated fulfillment unlock 49K–79K deflections.</p>
       <p class="tag">● Wave 1 · Early 2027</p>
     </article>
-    <article class="hero">
+    <article class="hero teal">
       <p class="cat">Human-in-the-loop orchestration</p>
       <p class="big">19%</p>
       <h3>identity, TAP &amp; password lockouts</h3>
