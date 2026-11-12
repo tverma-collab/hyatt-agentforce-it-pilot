@@ -236,6 +236,45 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
   .a { opacity: 1; transform: none; animation: none; }
   .bg, .badge.live::before { animation: none; }
 }
+
+.exec h2 { font-size: 52px; line-height: 1.05; }
+.exec .hl { color: #0176D3; }
+.exec .kicker { margin-bottom: 8px; }
+.exec-sub { max-width: 780px; margin-top: 12px; font-size: 22px; line-height: 1.35; color: #032D60; }
+.exec-grid {
+  margin-top: 22px; flex: 1; min-height: 0;
+  display: grid; grid-template-columns: 55fr 45fr; gap: 28px; align-items: center;
+}
+.exec-flow {
+  display: grid;
+  grid-template-columns: auto 28px 500px 28px auto;
+  grid-template-areas:
+    "in a1 hub a2 out"
+    "cap cap cap cap cap";
+  align-items: center; justify-content: center; column-gap: 8px;
+}
+.epill { grid-area: in; }
+.epill.out { grid-area: out; }
+.exec-flow .arr1 { grid-area: a1; }
+.exec-flow .arr2 { grid-area: a2; }
+.exec-flow .hub { grid-area: hub; width: 500px; height: 500px; display: block; }
+.exec-flow .earrow { width: 36px; height: 16px; }
+.exec-cap { grid-area: cap; margin: 6px 0 0; font-size: 16px; line-height: 1.35; color: #032D60; }
+.epill {
+  background: #fff; border: 2px solid #0176D3; border-radius: 999px;
+  padding: 12px 16px; text-align: center; min-width: 158px; color: #032D60;
+}
+.epill.out { border-color: #04E1CB; }
+.epill strong { display: block; font-family: var(--sf-font-display); font-weight: 600; font-size: 16px; line-height: 1.2; }
+.epill span { display: block; margin-top: 2px; font-size: 13px; line-height: 1.2; }
+.exec-stack { display: flex; flex-direction: column; gap: 12px; }
+.exec-card { background: #E8F1FA; color: #032D60; border-radius: 14px; padding: 16px 20px; }
+.exec-card h3 { margin: 0 0 6px; font-size: 20px; line-height: 1.2; color: #0176D3; }
+.exec-card p { margin: 0; font-size: 16px; line-height: 1.35; color: #032D60; }
+.exec-card.dark { background: #032D60; }
+.exec-card.dark h3 { color: #57A3FD; }
+.exec-card.dark p { color: #fff; }
+
 </style>
 </head>
 <body>
@@ -252,25 +291,45 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
   <div class="src a" style="left:54px;bottom:40px;width:1300px;font-size:15px;line-height:1.35;color:var(--sf-cloud-blue-95)">© Copyright 2000–2026 Salesforce, Inc. All rights reserved. Salesforce is a registered trademark of Salesforce, Inc., as are other names and marks. Other marks appearing herein may be trademarks of their respective owners.</div>
 </section>
 
-<section class="slide cb95">
+<section class="slide cb95 exec" id="summary">
   <p class="kicker">Executive summary</p>
-  <h2>A quieter front door for a very busy desk.</h2>
-  <div class="cols three">
-    <article class="card">
-      <span class="k">The volume</span>
-      <h3>917,222 tickets</h3>
-      <p>1 March to 21 September 2026. 102,169 incidents and 815,053 requested items. One in eight never landed in the right place. The catalog holds 562 items.</p>
-    </article>
-    <article class="card">
-      <span class="k">The pilot</span>
-      <h3>Teams in front</h3>
-      <p>Agentforce IT agents are the conversational layer. Knowledge, incidents, and requests are written back to ServiceNow, which stays the system of record. Hyatt’s channel is Microsoft Teams.</p>
-    </article>
-    <article class="card">
-      <span class="k">12 November</span>
-      <h3>The core path works</h3>
-      <p>Testers create, find, update, and close incidents from Teams. Links are tappable, shown today. A few backend and knowledge items are still open.</p>
-    </article>
+  <h2>One front door, <span class="hl">every IT request.</span></h2>
+  <p class="exec-sub">Microsoft Teams connects employees to Agentforce—deflecting routine questions, routing 562 catalog items accurately, and writing clean tickets back to ServiceNow.</p>
+  <div class="exec-grid">
+    <div class="exec-flow">
+      <div class="epill">
+        <strong>Microsoft Teams</strong>
+        <span>Employee Front Door</span>
+      </div>
+      <svg class="earrow arr1" viewBox="0 0 36 16" width="36" height="16" aria-hidden="true"><path d="M0 8h28M22 2l8 6-8 6" fill="none" stroke="#0176D3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="hub" viewBox="0 0 500 500" role="img" aria-label="Agentforce IT in the center, with knowledge, catalog, incident triage, identity, and live status around it">
+  <path d="M254.5,14.0 A236,236 0 0 1 473.0,172.8 L355.8,213.4 A112,112 0 0 0 252.2,138.0 Z" fill="#0B5CAB"/><path d="M475.8,181.4 A236,236 0 0 1 392.4,438.2 L317.6,339.3 A112,112 0 0 0 357.2,217.4 Z" fill="#0176D3"/><path d="M385.0,443.6 A236,236 0 0 1 115.0,443.6 L185.9,341.9 A112,112 0 0 0 314.1,341.9 Z" fill="#1B96FF"/><path d="M107.6,438.2 A236,236 0 0 1 24.2,181.4 L142.8,217.4 A112,112 0 0 0 182.4,339.3 Z" fill="#014486"/><path d="M27.0,172.8 A236,236 0 0 1 245.5,14.0 L247.8,138.0 A112,112 0 0 0 144.2,213.4 Z" fill="#0B5CAB"/>
+  <circle cx="250" cy="250" r="96" fill="#032D60"/>
+  <text x="250" y="244" text-anchor="middle" fill="#ffffff" font-family="Avant Garde for Salesforce, Century Gothic, sans-serif" font-size="22" font-weight="600">Agentforce IT</text>
+  <text x="250" y="268" text-anchor="middle" fill="#ffffff" font-family="Salesforce Sans, Helvetica, Arial, sans-serif" font-size="14">Conversational Layer</text>
+  <text text-anchor="middle" fill="#ffffff" font-family="Salesforce Sans, Helvetica, Arial, sans-serif"><tspan x="354.6" y="96.0" font-size="14" font-weight="600">Knowledge</tspan><tspan x="354.6" y="110.0" font-size="12" font-weight="400">20K+ deflectable</tspan><tspan x="354.6" y="124.0" font-size="12" font-weight="400">tickets</tspan></text><text text-anchor="middle" fill="#ffffff" font-family="Salesforce Sans, Helvetica, Arial, sans-serif"><tspan x="417.4" y="294.4" font-size="14" font-weight="600">Service</tspan><tspan x="417.4" y="308.4" font-size="14" font-weight="600">Catalog</tspan><tspan x="417.4" y="322.4" font-size="12" font-weight="400">562 catalog items</tspan></text><text text-anchor="middle" fill="#ffffff" font-family="Salesforce Sans, Helvetica, Arial, sans-serif"><tspan x="250.0" y="435.0" font-size="14" font-weight="600">Incident Triage</tspan><tspan x="250.0" y="449.0" font-size="12" font-weight="400">Fixes 22% misroutes</tspan></text><text text-anchor="middle" fill="#ffffff" font-family="Salesforce Sans, Helvetica, Arial, sans-serif"><tspan x="84.5" y="286.8" font-size="14" font-weight="600">Identity</tspan><tspan x="84.5" y="300.8" font-size="14" font-weight="600">& Access</tspan><tspan x="84.5" y="314.8" font-size="12" font-weight="400">312K/yr TAP</tspan><tspan x="84.5" y="328.8" font-size="12" font-weight="400">& lockouts</tspan></text><text text-anchor="middle" fill="#ffffff" font-family="Salesforce Sans, Helvetica, Arial, sans-serif"><tspan x="145.4" y="103.0" font-size="14" font-weight="600">Live Status</tspan><tspan x="145.4" y="117.0" font-size="12" font-weight="400">24/7 updates</tspan></text>
+</svg>
+      <svg class="earrow arr2" viewBox="0 0 36 16" width="36" height="16" aria-hidden="true"><path d="M0 8h28M22 2l8 6-8 6" fill="none" stroke="#0176D3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="epill out">
+        <strong>ServiceNow</strong>
+        <span>System of Record</span>
+      </div>
+      <p class="exec-cap">Every request passes through Agentforce in Teams before hitting ServiceNow—zero rip-and-replace.</p>
+    </div>
+    <div class="exec-stack">
+      <article class="exec-card">
+        <h3>1 · Validate the core path (Pilot Now)</h3>
+        <p>14 Chicago and EMEA testers are actively validating knowledge deflection, smart catalog routing, and direct Teams incident creation ahead of our November 20 readout.</p>
+      </article>
+      <article class="exec-card">
+        <h3>2 · Guardrail production safely</h3>
+        <p>Live directory write-backs (Entra, Omada, OPERA) remain intentionally gated during this two-and-a-half-week test window—proving AI accuracy with zero disruption to hotel operations.</p>
+      </article>
+      <article class="exec-card dark">
+        <h3>3 · Unlock $0.8M–$1.3M in desk capacity</h3>
+        <p>Addressing 72% non-break/fix volume frees 9–15 FTEs (26%–42% of service desk workload) to absorb +13–28% access growth ahead of the AI Council’s year-end decision.</p>
+      </article>
+    </div>
   </div>
 </section>
 
