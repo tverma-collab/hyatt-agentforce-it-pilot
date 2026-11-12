@@ -664,13 +664,18 @@ addEventListener('touchstart',e=>{
 addEventListener('touchend',e=>{
   if(sx==null) return;
   const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
-  if(dx<-48 && Math.abs(dx)>Math.abs(dy)){swiped=true; next()}
+  if(Math.abs(dx)>48 && Math.abs(dx)>Math.abs(dy)){swiped=true; dx<0?next():prev()}
   sx=null;
 });
 addEventListener('click',e=>{
   if(swiped){swiped=false;return}
-  if(e.target.closest('#go-prev,a,button,input,label,video,iframe,.noclick')) return;
-  next();
+  if(e.target.closest('a,.noclick,button,input,label,video,iframe')) return;
+  const s=SLIDES[cur];
+  const overflows=s.scrollHeight>s.clientHeight+12;
+  const x=e.clientX/innerWidth;
+  if(!overflows){ e.clientX>innerWidth/2?next():prev(); }
+  else if(x>0.84) next();
+  else if(x<0.16) prev();
 });
 const start=parseInt(location.hash.slice(1),10)||1;
 render(start-1);
