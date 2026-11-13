@@ -242,27 +242,41 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 .exec .kicker { margin-bottom: 8px; }
 .exec-sub { max-width: 1480px; margin-top: 12px; font-size: 22px; line-height: 1.35; color: #032D60; }
 .exec-grid {
-  margin-top: 22px; flex: 1; min-height: 0;
-  display: grid; grid-template-columns: 48fr 52fr; gap: 28px; align-items: stretch;
+  margin-top: 16px; flex: 1; min-height: 0;
+  display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: stretch;
 }
 .exec-flow {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+  align-items: center; justify-items: center;
+  column-gap: 14px;
   height: 100%; min-height: 0;
 }
-.exec-flow .earrow { width: 28px; height: 16px; flex: none; }
-.hubwrap { position: relative; width: 440px; height: 440px; flex: none; }
+.exec-flow .earrow { width: 32px; height: 16px; }
+.hubwrap {
+  position: relative; justify-self: center;
+  height: 100%; width: auto; max-width: 100%; aspect-ratio: 1;
+}
 .hubwrap .hub { width: 100%; height: 100%; display: block; }
 .hub-logo {
   position: absolute; left: 50%; top: 50%; width: 28%; height: auto;
   transform: translate(-50%, -50%); pointer-events: none;
 }
-.mark { flex: none; display: block; object-fit: contain; }
-.mark.teams { width: 96px; height: 96px; }
-.mark.snow { width: 200px; height: auto; }
-.exec-stack { display: flex; flex-direction: column; gap: 14px; align-self: center; justify-content: center; }
-.exec-card { background: #fff; color: #032D60; border-radius: 14px; padding: 22px 28px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(1,118,211,.14); }
-.exec-card h3 { margin: 0 0 8px; font-size: 26px; line-height: 1.2; color: #0176D3; }
-.exec-card p { margin: 0; font-size: 20px; line-height: 1.4; color: #032D60; }
+.mark { display: block; object-fit: contain; }
+.mark.teams { width: 108px; height: 108px; }
+.mark.snow { width: 230px; height: auto; }
+.exec-stack {
+  display: flex; flex-direction: column; gap: 22px;
+  height: 100%; min-height: 0; justify-content: stretch;
+}
+.exec-card {
+  background: #fff; color: #032D60; border-radius: 14px; padding: 26px 24px;
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column; justify-content: center;
+  border: 1px solid rgba(1,118,211,.14);
+}
+.exec-card h3 { margin: 0 0 10px; font-size: 24px; line-height: 1.2; color: #0176D3; }
+.exec-card p { margin: 0; font-size: 18px; line-height: 1.4; color: #032D60; }
 .exec-card.teal { background: #0F766E; border-color: #0F766E; }
 .exec-card.teal h3 { color: #fff; }
 .exec-card.teal p { color: #E7F7F4; }
