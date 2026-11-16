@@ -188,7 +188,7 @@ p { margin: 0; }
     radial-gradient(35% 45% at 90% 80%, rgba(0,179,255,.45), transparent 70%),
     radial-gradient(30% 40% at 70% 10%, rgba(209,125,254,.28), transparent 70%);
 }
-.slide:not(.divider) > *:not(.mesh):not(canvas):not(.foot):not(.stats-note) { position: relative; z-index: 1; }
+.slide:not(.divider) > *:not(.mesh):not(canvas):not(.foot):not(.stats-note):not(.draft-mark) { position: relative; z-index: 1; }
 .slide > .foot { position: absolute; z-index: 4; }
 canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-index: 1; pointer-events: none; }
 #bar { position: fixed; left: 0; right: 0; bottom: 0; height: 6px; background: var(--sf-cloud-blue-68); width: 0; z-index: 30; }
@@ -432,16 +432,42 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 }
 .vision-hold strong { font-family: var(--sf-font-display); font-weight: 600; font-size: 26px; line-height: 1.2; max-width: 16em; }
 .vision-hold span { color: #DCEAF8; font-size: 16px; }
+.draft-mark {
+  position: absolute; left: 50%; top: 46%; z-index: 6; pointer-events: none;
+  transform: translate(-50%, -50%) rotate(-22deg);
+  font-family: var(--sf-font-display); font-weight: 600; font-size: 210px;
+  letter-spacing: .22em; text-indent: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+}
 
 
 .wrapup .wrap-close {
   position: relative; z-index: 2; flex: 1; min-height: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 0 120px 40px;
+  text-align: center; padding: 24px 100px 230px;
 }
-.wrapup h2 { font-size: 84px; line-height: 1.06; color: #fff; max-width: 14em; }
+.wrapup .kicker { margin-bottom: 18px; }
+.wrapup h2 { font-size: 76px; line-height: 1.06; color: #fff; max-width: 14em; }
 .wrapup h2 .hl { color: #57A3FD; }
-.wrap-lead { margin-top: 36px; font-size: 36px; line-height: 1.35; color: #DCEAF8; max-width: 22em; }
+.wrap-lead { margin-top: 28px; font-size: 30px; line-height: 1.35; color: #DCEAF8; max-width: 26em; }
+.roadmap {
+  position: absolute; left: 64px; right: 64px; bottom: 104px; z-index: 3;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+}
+.roadmap p {
+  margin: 0; display: flex; align-items: center; gap: 12px; min-height: 78px;
+  padding: 12px 18px 12px 12px; border-radius: 999px; text-align: left;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(144,208,254,.5);
+  color: #fff; font-size: 16px; line-height: 1.3;
+}
+.roadmap b {
+  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #0176D3; font-family: var(--sf-font-display); font-weight: 600; font-size: 18px;
+}
+.roadmap span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.roadmap strong { font-family: var(--sf-font-display); font-weight: 600; }
+.roadmap em { font-style: normal; color: #DCEAF8; }
 .slide.wrapup .foot { justify-content: space-between; }
 
 </style>
@@ -523,7 +549,7 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
       <p class="tag">● Future state</p>
     </article>
   </div>
-  <p class="stats-note">Source: Hyatt ServiceNow export (1 Mar – 21 Sep 2026; 917K records scaled to ~1.63M annualized). Headline percentages reflect total addressable category volume; ticket ranges (99K–138K, 22K–37K, 49K–79K) reflect projected Agentforce capture.</p>
+  <p class="stats-note">Hyatt ServiceNow export (1 Mar – mid Sep 2026; 917K records scaled to ~1.63M annualized). Headline percentages reflect total addressable category volume; ticket ranges (99K–138K, 22K–37K, 49K–79K) reflect projected Agentforce capture.</p>
 </section>
 
 <section class="slide livedemo" id="pilot">
@@ -582,13 +608,20 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
       <div class="demo-point"><b>3</b><div><strong>Closed-Loop Resolution &amp; Audit</strong><span>Completes the reset/TAP flow, guides self-service MFA setup, and logs a compliant ServiceNow record in under a minute.</span></div></div>
     </div>
   </div>
+  <div class="draft-mark" aria-hidden="true">Draft</div>
 </section>
 
 <section class="slide evening wrapup" id="thanks">
   <div class="mesh"></div>
   <div class="wrap-close">
+    <p class="kicker">What's next</p>
     <h2><span class="hl">A simpler front door for Hyatt.</span></h2>
-    <p class="wrap-lead">Thank you to Hyatt’s IT and Service Desk teams for partnering with Salesforce to validate how Agentforce elevates employee and property support—right inside Microsoft Teams.</p>
+    <p class="wrap-lead">Thank you to Hyatt’s IT and Service Desk teams for partnering with Salesforce to validate how Agentforce elevates colleague and property support—right inside Microsoft Teams, with ServiceNow as your single system of record.</p>
+    <div class="roadmap">
+      <p><b>1</b><span><strong>Live Pilot (Now)</strong><em>Validate deflection &amp; first-touch routing</em></span></p>
+      <p><b>2</b><span><strong>Wave 1 (Early 2027)</strong><em>Automate 49K–79K access &amp; software requests</em></span></p>
+      <p><b>3</b><span><strong>Global Scale</strong><em>Extend self-service to properties &amp; franchise owners</em></span></p>
+    </div>
   </div>
 </section>
 
