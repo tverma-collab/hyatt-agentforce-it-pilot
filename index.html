@@ -188,7 +188,7 @@ p { margin: 0; }
     radial-gradient(35% 45% at 90% 80%, rgba(0,179,255,.45), transparent 70%),
     radial-gradient(30% 40% at 70% 10%, rgba(209,125,254,.28), transparent 70%);
 }
-.slide:not(.divider) > *:not(.mesh):not(canvas):not(.foot) { position: relative; z-index: 1; }
+.slide:not(.divider) > *:not(.mesh):not(canvas):not(.foot):not(.stats-note) { position: relative; z-index: 1; }
 .slide > .foot { position: absolute; z-index: 4; }
 canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-index: 1; pointer-events: none; }
 #bar { position: fixed; left: 0; right: 0; bottom: 0; height: 6px; background: var(--sf-cloud-blue-68); width: 0; z-index: 30; }
@@ -288,6 +288,12 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 .stats h2 { font-size: 44px; line-height: 1.08; color: #032D60; max-width: 22em; }
 .stats .hl { color: #0176D3; }
 .stats-sub { max-width: 1280px; margin-top: 14px; font-size: 20px; line-height: 1.4; color: #032D60; }
+.stats-note {
+  position: absolute; z-index: 5; margin: 0;
+  left: var(--foot-left, 64px); right: calc(var(--foot-right, 64px) + 92px);
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  font-size: 15px; line-height: 1.35; color: rgba(3,45,96,.72);
+}
 .hero-row {
   margin-top: 28px; flex: 1; min-height: 0;
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px;
@@ -513,10 +519,11 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
       <p class="cat">Next wave &amp; human boundaries</p>
       <p class="big">25.5%</p>
       <h3>simple access &amp; software requests</h3>
-      <p class="copy">417K requests a year (app access, OPERA, user/group changes) unlock 49K–79K automated fulfillments in Wave 1—while 303K video-verified identity and TAP lockouts remain human-led.</p>
-      <p class="tag">● Wave 1 · Early 2027</p>
+      <p class="copy">417K requests a year (app access, OPERA, user/group changes) unlock 49K–79K automated fulfillments in future phases—while 303K video-verified identity and TAP lockouts remain human-led.</p>
+      <p class="tag">● Future state</p>
     </article>
   </div>
+  <p class="stats-note">Source: Hyatt ServiceNow export (1 Mar – 21 Sep 2026; 917K records scaled to ~1.63M annualized). Headline percentages reflect total addressable category volume; ticket ranges (99K–138K, 22K–37K, 49K–79K) reflect projected Agentforce capture.</p>
 </section>
 
 <section class="slide livedemo" id="pilot">
