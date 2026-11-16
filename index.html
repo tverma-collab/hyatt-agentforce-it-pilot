@@ -204,7 +204,7 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
   width: auto; min-width: 96px; padding: 0 16px; border-radius: 22px;
   font-family: var(--sf-font-display); font-weight: 600; font-size: 16px; letter-spacing: .02em;
 }
-.slide .foot { left: 64px; right: 64px; }
+.slide .foot { left: var(--foot-left, 64px); right: var(--foot-right, 64px); }
 .source { margin-top: 10px; font-size: 13px; line-height: 1.35; opacity: .75; }
 
 .cols.three { grid-template-columns: repeat(3, 1fr); }
@@ -436,7 +436,7 @@ canvas.net { position: absolute; inset: 0; width: 1920px; height: 1080px; z-inde
 .wrapup h2 { font-size: 84px; line-height: 1.06; color: #fff; max-width: 14em; }
 .wrapup h2 .hl { color: #57A3FD; }
 .wrap-lead { margin-top: 36px; font-size: 36px; line-height: 1.35; color: #DCEAF8; max-width: 22em; }
-.slide.wrapup .foot { justify-content: space-between; right: 128px; }
+.slide.wrapup .foot { justify-content: space-between; }
 
 </style>
 </head>
@@ -632,13 +632,25 @@ function render(n){
   b.classList.toggle('reset', last);
   b.textContent=last?'Reset':'›';
   b.setAttribute('aria-label', last?'Reset':'Next');
+  fit();
 }
 function next(){ render(cur===SLIDES.length-1?0:cur+1); }
 function prev(){ render(cur-1); }
 function fit(){
   const s=Math.min(innerWidth/1920, innerHeight/1080);
+  const tx=(innerWidth-1920*s)/2, ty=(innerHeight-1080*s)/2;
   const st=document.getElementById('stage');
-  st.style.transform=`translate(${(innerWidth-1920*s)/2}px,${(innerHeight-1080*s)/2}px) scale(${s})`;
+  st.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;
+  const next=document.getElementById('go-next'), prev=document.getElementById('go-prev');
+  if(!next||!prev||s<=0) return;
+  const gap=18;
+  const nr=next.getBoundingClientRect(), pr=prev.getBoundingClientRect();
+  const footBottom=ty+(1080-14)*s, footTop=footBottom-40*s;
+  const overlap=footBottom>nr.top-10 && footTop<nr.bottom+10;
+  const right=overlap?Math.max(64, 1920-(nr.left-gap-tx)/s):64;
+  const left=overlap?Math.max(64, (pr.right+gap-tx)/s):64;
+  st.style.setProperty('--foot-right', right+'px');
+  st.style.setProperty('--foot-left', left+'px');
 }
 const NETS=new Map();
 function initNet(c){
